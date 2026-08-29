@@ -5,12 +5,12 @@
     {
       "name": "latexmk",
       "command": "latexmk",
+      "cwd": "%DIR%",
       "args": [
         "-pdf",
         "-shell-escape",
         "-interaction=nonstopmode",
         "-synctex=1",
-        "-outdir=build",
         "%DOC%"
       ]
     }

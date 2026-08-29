@@ -2,9 +2,9 @@
 \newcommand{\TODO}[1]{\textcolor{red}{#1}}
 \newcommand{\mtnote}[1]{\textsuperscript{\TPTtagStyle{#1}}}
 
-\newcommand{\TITULO}{Titulo do Trabalho}
-\newcommand{\RELATORIO}{Nome da Disciplina ou Projeto}
-\newcommand{\ALUNOS}{Seu Nome -- Matricula}
+\newcommand{\TITULO}{Estudo Dirigido 0}
+\newcommand{\RELATORIO}{Fundamentos de Inteligência Artificial}
+\newcommand{\ALUNOS}{Thales Vasconcelos -- 2018019630}
 \newcommand{\MesAtual}{%
   \ifcase\month\or
     Janeiro\or Fevereiro\or Marco\or Abril\or Maio\or Junho\or
@@ -12,3 +12,14 @@
   \fi
 }
 \newcommand{\DATARELATORIO}{\MesAtual/\number\year}
+
+\newenvironment{questao}[1]
+{
+  \begin{framed}
+    \noindent\textbf{#1}
+    \par
+    \vspace{0.5em}
+}
+{
+  \end{framed}
+}
