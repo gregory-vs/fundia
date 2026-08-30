@@ -2,9 +2,10 @@ $pdf_mode = 1;
 $do_cd = 1;
 $out_dir = "build";
 $aux_dir = "build";
+if (! -d $out_dir) {
+    mkdir $out_dir or die "Cannot create output directory '$out_dir': $!";
+}
 $bibtex_use = 1;
 $interaction = "nonstopmode";
 $recorder = 1;
-# Pass the output directory explicitly so minted and direct latexmk/editor
-# invocations agree on where temporary files are generated.
-$pdflatex = 'pdflatex -shell-escape -interaction=nonstopmode -synctex=1 -output-directory=build %O %S';
+$pdflatex = 'pdflatex -shell-escape %O %S';
