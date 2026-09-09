@@ -1,301 +1,1435 @@
-\section{Questão 1}
-  Escolha uma habilidade humana complexa que você domine (por exemplo, dirigir em trânsito intenso, tocar um instrumento, cozinhar sem receita, arbitrar um jogo). Evite os exemplos usados em aula.
+\section{Exercicio 1}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imagens/ex1.png}
+    \caption{Exercício 1.}
+    \label{fig:ex1}
+\end{figure}
+
+\subsection{Letra a}
+\[
+N(B)=\{A,C,D\}
+\]
+
+\[
+d(B)=|N(B)|=3
+\]
+
+\[
+N(D)=\{B,C,E\}
+\]
+
+\[
+d(D)=|N(D)|=3
+\]
+A vizinhança de um vértice é formada pelos vértices conectados diretamente a ele. Dessa forma, para o vértice \(B\), tem-se \(N(B)=\{A,C,D\}\), resultando em grau \(d(B)=3\). Analogamente, o vértice \(D\) possui como vizinhos \(B\), \(C\) e \(E\), de modo que \(N(D)=\{B,C,E\}\) e \(d(D)=3\).
+
+\subsection{Letra b}
+\[
+\begin{array}{c|ccccc}
+  & A & B & C & D & E \\ \hline
+A & 0 & 1 & 1 & 0 & 0 \\
+B & 1 & 0 & 1 & 1 & 0 \\
+C & 1 & 1 & 0 & 1 & 0 \\
+D & 0 & 1 & 1 & 0 & 1 \\
+E & 0 & 0 & 0 & 1 & 0
+\end{array}
+\]
+
+\subsection{Letra c}
+
+Para o vértice $B$:
+
+\[
+\sum_j A_{Bj}
+=
+1+0+1+1+0
+=
+3
+=
+d(B).
+\]
 
-  Atividade escolhida: \textbf{Cozinhar sem receita}.
+Para o vértice $D$:
+
+\[
+\sum_j A_{Dj}
+=
+0+1+1+0+1
+=
+3
+=
+d(D).
+\]
 
+Além disso, como o grafo é não direcionado,
 
-\begin{questao}{Letra a}
-    Separe o que, nesse conhecimento, é explícito do que é tácito, justificando a fronteira.
-\end{questao}
+\[
+A_{ij}=A_{ji},
+\]
 
-Conhecimento explícito: aquilo que pode ser verbalizado, ensinado ou registrado de forma objetiva.
-\begin{itemize}
-\item conhecer procedimentos básicos de refogar, assar e ferver, incluindo faixas de temperatura, ordem geral das etapas e técnicas associadas;
-\end{itemize}
+logo,
 
-Conhecimento tácito: aquilo que é difícil de expressar, muitas vezes baseado em experiência pessoal e intuição.
-\begin{itemize}
-\item Ajustar temperos e sabores de acordo com o gosto pessoal;
-\item Ajustar o fogo e o tempo de cozimento com base na observação visual e olfativa;
-\item Combinar ingredientes de forma criativa e intuitiva.
-\end{itemize}
+\[
+A=A^\top.
+\]
 
-A fronteira entre os dois está no grau de codificação. Se o conhecimento pode ser descrito em regras, instruções ou passos relativamente claros, ele tende a ser explícito. Se ele depende de intuição, sensibilidade, contexto e prática acumulada, ele é tácito. Em cozinhar sem receita, os dois se misturam, mas a execução boa da atividade depende principalmente do conhecimento tácito, porque seguir regras gerais não basta para lidar com variações reais dos ingredientes, do utensílio e do ponto desejado.
+Para verificar a propriedade \(\sum_j A_{ij}=d(v_i)\), foram escolhidos os vértices \(B\) e \(D\). Para \(B\), a soma dos elementos de sua linha na matriz de adjacências é \(1+0+1+1+0=3\), correspondendo ao seu grau \(d(B)=3\). Para \(D\), obtém-se \(0+1+1+0+1=3\), também correspondente a \(d(D)=3\). Além disso, por se tratar de um grafo não direcionado, sempre que existe uma aresta entre \(v_i\) e \(v_j\), existe adjacência tanto de \(v_i\) para \(v_j\) quanto de \(v_j\) para \(v_i\). Assim, \(A_{ij}=A_{ji}\), fazendo com que a matriz seja simétrica, isto é, \(A=A^\top\).
 
+\subsection{Letra d}
+As arestas que chegam ao vértice $C$ são:
 
-\begin{questao}{Letra b}
-  Explique por que a parcela tácita resiste a ser formalizada como um algoritmo de passos discretos.
-\end{questao}
+\[
+A\rightarrow C
+\qquad \text{e} \qquad
+D\rightarrow C.
+\]
 
-A parcela tácita resiste à formalização como um algoritmo de passos discretos porque ela depende de percepção, contexto e julgamento prático, elementos que não podem ser descritos de maneira totalmente fixa e universal. Em cozinhar sem receita, muitas decisões são tomadas a partir de sinais sutis, como cheiro, cor, textura e reação dos ingredientes, que variam de situação para situação.
+Portanto,
 
-Além disso, esse tipo de conhecimento é fortemente baseado na experiência acumulada. A pessoa não segue apenas regras explícitas, mas interpreta o que está acontecendo e adapta sua ação em tempo real. Por isso, não basta escrever uma sequência fechada de passos: o processo exige improvisação, sensibilidade e ajustes contínuos, características que tornam difícil traduzi-lo em um algoritmo exato e discreto.
+\[
+d^{-}(C)=2.
+\]
 
-\begin{questao}{Letra c}
-  Explique por que a parcela tácita resiste a ser formalizada como um algoritmo de passos discretos.
-\end{questao}
+A única aresta que sai de $C$ é:
 
-A parcela tácita é difícil de transformar em um algoritmo porque depende de experiência, percepção e contexto. Ao cozinhar sem receita, decisões como ajustar o fogo, o tempo ou os temperos são feitas a partir de sinais como cheiro, cor e textura, que variam em cada situação. Por isso, esse conhecimento não pode ser reduzido facilmente a uma sequência fixa de passos.
+\[
+C\rightarrow B.
+\]
 
-\section{Questão 2}
-  A PSSH: Physical Symbol System Hypothesis afirma que manipular símbolos é condição necessária e suficiente para o comportamento inteligente.
+Assim,
 
-\begin{questao}{Letra a}
-  Explique, com suas palavras, a diferença entre as afirmações de necessidade e de suficiência.
-\end{questao}
+\[
+d^{+}(C)=1.
+\]
 
-Quando falamos de necessidade, estamos querendo dizer que é necessario que algo estaja presente para que outra coisa ocorra. Agora, quando falamos de suficiencia, dizemos que quando algo está presente isso já é o suficiente para garantir a outra coisa. Isso se correlaciona à PSSH no sentido de que a manipulação de símbolos é necessária para o comportamento inteligente, mas não garante que o comportamento inteligente ocorra apenas com a manipulação de símbolos.
+Além disso,
 
-\begin{questao}{Letra b}
-  Apresente um argumento contra a suficiência e um contra a necessidade, associando cada um a uma linha crítica estudada (Searle, Dreyfus, cognição corporificada, conexionismo).
-\end{questao}
+\[
+A\rightarrow B \in E',
+\]
 
-Contra a suficiência, Searle argumenta, por meio do Quarto Chinês, que manipular símbolos corretamente não garante compreensão do significado. Assim, o processamento simbólico pode não ser suficiente para produzir inteligência genuína.
+mas
 
-Contra a necessidade, o conexionismo mostra que sistemas podem apresentar comportamentos inteligentes por meio de redes neurais e padrões distribuídos, sem utilizar símbolos explícitos. Portanto, a manipulação simbólica pode não ser necessária para a inteligência.
+\[
+B\rightarrow A \notin E'.
+\]
 
-\begin{questao}{Letra c}
-  Posicione-se: a PSSH é falsa, parcialmente verdadeira ou verdadeira? Defenda em no máximo dois parágrafos.
-\end{questao}
+Logo,
 
-Embora a PSSH possa, de certa forma, se mostrar parcialmente verdadeira, eu acredito que o seu erro principal está na definição de suficiencia. Na questão anterior verificamos a diferença entre conhecimeto explícito de tácito e isso pode se correlacionar ao fato da PSSH ser falsa justamente quando falamos da questão tácita do conhecimento. Reproduzir um comportamento inteligente vai além da reprodução e manipulação de símbolos, ele está diretamente associado ao conhecimento tácito, que vem de experiências passadas, tornando a PSSH falsa.
+\[
+A_{AB}=1
+\qquad \text{e} \qquad
+A_{BA}=0,
+\]
 
-\section{Questão 3}
-  O argumento do Quarto Chinês distingue sintaxe de semântica
+portanto,
 
-\begin{questao}{Letra a}
-  Reconstrua o argumento em três ou quatro passos lógicos
-\end{questao}
+\[
+A\neq A^\top.
+\]
+Considerando o conjunto de arestas direcionadas \(E'\), chegam ao vértice \(C\) as arestas \(A\rightarrow C\) e \(D\rightarrow C\), resultando em grau de entrada \(d^-(C)=2\). A única aresta que parte de \(C\) é \(C\rightarrow B\), portanto seu grau de saída é \(d^+(C)=1\). Nesse caso, a matriz de adjacências deixa de ser necessariamente simétrica, pois uma aresta \(v_i\rightarrow v_j\) não implica a existência de \(v_j\rightarrow v_i\). Por exemplo, existe \(A\rightarrow B\), mas não \(B\rightarrow A\), de modo que \(A_{AB}=1\) e \(A_{BA}=0\). Assim, \(A\neq A^\top\).
 
-\begin{itemize}
-\item Um sistema pode manipular símbolos corretamente seguindo regras puramente sintáticas.
-\item No Quarto Chinês, a pessoa produz respostas adequadas em chinês sem compreender o significado dos símbolos.
-\item Logo, manipular símbolos corretamente não implica possuir compreensão semântica.
-\item Portanto, a manipulação sintática, por si só, não é suficiente para gerar compreensão genuína.
-\end{itemize}
 
-\begin{questao}{Letra b}
-  Um LLM que conversa de forma coerente compreende o que diz ou apenas manipula símbolos? Assuma uma posição, antecipe a objeção mais forte a ela e responda-a
-\end{questao}
+\section{Exercício 2}
 
-Parcialmente. Uma LLM funciona a partir de uma rede neural, ela gera respostas a partir de padrões aprendidos anteriormente por meio de treinamento, combinando contexto, relações semânticas e regularidades linguísticas. Por isso, ele pode demonstrar uma forma de compreensão funcional, ao relacionar conceitos e produzir respostas coerentes, mas isso não significa necessariamente que possua compreensão semântica genuína sobre aquilo que diz.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imagens/ex2.png}
+    \caption{Exercício 2.}
+    \label{fig:ex2}
+\end{figure}
 
-\begin{questao}{Letra c}
-  O argumento de Searle depende da inteligência ser um fenômeno biológico? Discuta se essa premissa é essencial ou dispensável
-\end{questao}
+\subsection{Letra a}
+Define-se o estado como:
 
-Não necessariamente. Podemos dizer que o Quarto Chinês pode ser formulado sem assumir que a inteligência seja exclusivamente biológica. A ideia principal do experimento diz que apenas a manipulação de símbolos não garante compreensão semântica. Quando falamos da parte biológica, estamos associando o experimento aos processos do cérebro, porém, para criticar a ideia de que processamente simbolico é suficiente para compreensão, não precisamos necessariamente associar o fenômeno biológico.
+\[
+(x,y),
+\]
 
-\section{Questão 4}
-  Sobre Turing e Winograd:
+onde:
 
-\begin{questao}{Letra a}
-  Contraste o Teste de Turing e o Esquema de Winograd quanto ao que cada um pretende medir e às suas respectivas limitações
-\end{questao}
+\[
+0\leq x\leq4
+\]
 
-O Teste de Turing mede se uma máquina consegue parecer humana em uma conversa, mas não prova compreensão real. Já o Esquema de Winograd testa compreensão contextual e senso comum, porém também pode ser resolvido por padrões sem garantir compreensão genuína.
+representa a quantidade de água no jarro de $4$ litros e
 
-\begin{questao}{Letra b}
-  Crie um exemplo original de esquema de Winograd (frase com pronome ambíguo) e explique exatamente qual conhecimento de mundo é necessário para remover a ambiguidade
-\end{questao}
+\[
+0\leq y\leq3
+\]
 
-“João não colocou o sorvete na geladeira porque ele estava derretendo.”
+representa a quantidade de água no jarro de $3$ litros.
 
-O pronome “ele” se refere ao sorvete não a João. Para remover a ambiguidade, é necessário saber que sorvetes podem derreter quando estão fora de refrigeração, enquanto pessoas não “derretem” nesse sentido literal.
+O estado inicial é:
 
-\begin{questao}{Letra c}
-  Por que um sistema pode “passar” no Teste de Turing sem exibir senso comum robusto?
-\end{questao}
+\[
+s_0=(0,0).
+\]
 
-Porque o Teste de Turing avalia principalmente se o sistema consegue manter uma conversa convincente, não se ele possui compreensão profunda do mundo. Assim, ele pode imitar respostas humanas e usar padrões linguísticos plausíveis mesmo apresentando falhas em situações que exigem senso comum, contexto ou conhecimento cotidiano.
+Como o objetivo é obter exatamente $2$ litros no jarro de $4$ litros,
+o conjunto de estados-objetivo é:
 
-\section{Questão 5}
+\[
+G=\{(2,y)\mid 0\leq y\leq3\}.
+\]
 
-Jogar xadrez mostrou-se, historicamente, mais fácil para a IA do que reconhecer objetos ou caminhar
+Explicitamente,
 
-\begin{questao}{Letra a}
-  Explique esse paradoxo à luz do conhecimento tácito e da cognição corporificada.
-\end{questao}
+\[
+G=\{(2,0),(2,1),(2,2),(2,3)\}.
+\]
+O estado do problema pode ser representado pelo par ordenado \((x,y)\), em que \(x\) corresponde à quantidade de água presente no jarro de 4 litros e \(y\) à quantidade presente no jarro de 3 litros. Dessa forma, \(0\leq x\leq4\) e \(0\leq y\leq3\). O estado inicial é \((0,0)\), pois ambos os jarros estão inicialmente vazios. Como o objetivo consiste em obter exatamente 2 litros no jarro de 4 litros, qualquer estado da forma \((2,y)\) é considerado objetivo.
 
-Xadrez tem regras explícitas e fáceis de formalizar. Já caminhar e reconhecer objetos dependem de percepção, experiência corporal e conhecimento tácito, sendo muito mais difíceis de transformar em regras.
+\subsection{Letra b}
+As ações possíveis são:
 
-\begin{questao}{Letra b}
-  Que papéis o corpo e a evolução desempenham na cognição humana, e que consequência isso traz para agentes puramente simbólicos?
-\end{questao}
+\[
+\text{Encher}_{4}:(x,y)\rightarrow(4,y)
+\]
 
-O corpo fornece percepção e interação direta com o ambiente, enquanto a evolução moldou capacidades cognitivas adaptadas à sobrevivência. Isso sugere que agentes puramente simbólicos podem ter limitações por não possuírem experiência corporal nem interação física com o mundo.
+\[
+\text{Encher}_{3}:(x,y)\rightarrow(x,3)
+\]
 
-\begin{questao}{Letra c}
-  Relacione a discussão à proposta de world models como caminho rumo à AGI (Inteligência Artificial Geral).
-\end{questao}
+\[
+\text{Esvaziar}_{4}:(x,y)\rightarrow(0,y)
+\]
 
-Os world models tentam suprir essa limitação ao permitir que a IA construa uma representação interna de como o mundo funciona, prevendo consequências e simulando situações. Isso pode aproximá-la de uma cognição mais geral, embora ainda não substitua completamente a experiência corporal e a interação real com o ambiente.
+\[
+\text{Esvaziar}_{3}:(x,y)\rightarrow(x,0)
+\]
 
-\section{Questão 6}
-Considere um agente que gerencia automaticamente a irrigação de uma horta urbana comunitária. Sem descrever a solução algorítmica, especifique:
+Para transferir água do jarro de $4$ litros para o de $3$ litros,
+define-se:
 
-\begin{itemize}
-\item Habilidades: monitorar umidade do solo, clima e consumo de água; acionar ou interromper a irrigação.
-\item Objetivos/preferências: manter as plantas saudáveis, economizar água e evitar excesso de irrigação. Pode haver conflito entre economizar água e fornecer água suficiente em períodos quentes.
-\item Conhecimento prévio: necessidades de água de cada cultivo, características do solo, horários adequados para irrigação e histórico climático.
-\item Estímulos atuais: umidade do solo, temperatura, previsão de chuva e estado das plantas. Experiências passadas podem ajudar o agente a ajustar futuras decisões, por exemplo, reduzindo a irrigação se situações semelhantes já resultaram em excesso de água.
-\item O ambiente é parcialmente observável, pois o agente não consegue conhecer perfeitamente todas as condições relevantes, como a umidade em cada ponto do solo. Também é não determinístico, porque uma mesma ação pode gerar resultados diferentes devido a fatores como chuva, temperatura, vento e comportamento das plantas.
-\end{itemize}
+\[
+t=\min(x,3-y),
+\]
 
-\section{Questão 7}
-Projete, textualmente, um agente para uma das tarefas: (i) coordenar o estacionamento de um campus universitário; (ii) fazer a triagem inicial de pacientes
-em um pronto-atendimento; (iii) monitorar e reduzir o consumo de energia de um prédio. (Você pode propor outra tarefa de complexidade equivalente.) 
+resultando em:
 
-Item escolhido: (iii) monitorar e reduzir o consumo de energia de um prédio.
+\[
+(x,y)\rightarrow(x-t,y+t).
+\]
 
-\begin{questao}{Letra a}
-  especificação da tarefa em formato PEAS
-\end{questao}
+Para transferir água do jarro de $3$ litros para o de $4$ litros,
+define-se:
 
-\begin{itemize}
-\item Desempenho: reduzir consumo sem perder conforto.
-\item Ambiente: prédio e seus ocupantes.
-\item Atuadores: luzes, ar-condicionado e equipamentos.
-\item Sensores: presença, temperatura e consumo.
-\end{itemize}
+\[
+t=\min(y,4-x),
+\]
 
-\begin{questao}{Letra b}
-  descrição dos quatro subsistemas
-\end{questao}
+resultando em:
 
-\begin{itemize}
-\item Percepção: coleta dados do ambiente.
-\item KRR: interpreta os dados e decide ações.
-\item Ação: ajusta equipamentos.
-\item Aprendizado: usa o histórico para melhorar decisões.
-\end{itemize}
+\[
+(x,y)\rightarrow(x+t,y-t).
+\]
+As ações disponíveis são: encher o jarro de 4 litros, encher o jarro de 3 litros, esvaziar o jarro de 4 litros, esvaziar o jarro de 3 litros, transferir água do jarro de 4 litros para o de 3 litros e realizar a transferência no sentido contrário. Nas ações de transferência, a operação continua até que o jarro de origem seja esvaziado ou que o jarro de destino atinja sua capacidade máxima. Por exemplo, na transferência do jarro de 4 litros para o de 3 litros, a quantidade transferida é \(t=\min(x,3-y)\), resultando no estado \((x-t,y+t)\).
 
-\begin{questao}{Letra c}
-  classificação do agente
-\end{questao}
+\subsection{Letra c}
+A partir do estado inicial:
 
-\begin{itemize}
-\item Parcialmente observável: nem tudo é conhecido.
-\item Não determinístico: ações podem ter efeitos diferentes.
-\item Horizonte longo: decisões afetam consumo futuro.
-\item Multiagente: interage com ocupantes.
-\end{itemize}
+\[
+(0,0)
+\]
 
-\begin{questao}{Letra d}
-  uma discussão: este agente é melhor descrito como um Agente de IA único ou como IA Agêntica? Por quê
-\end{questao}
+são alcançados, na profundidade $1$:
 
-É uma IA Agêntica, pois percebe, decide, age e aprende continuamente de forma autônoma.
+\[
+(4,0)
+\qquad \text{e} \qquad
+(0,3).
+\]
 
-\begin{questao}{Letra e}
-  diagrama do laço fechado
-\end{questao}
+Expandindo $(4,0)$:
 
-Sensores → Percepção → Raciocínio → Ação → Ambiente → Aprendizado
+\[
+(4,0)\rightarrow(0,0)
+\]
 
-\section{Questão 8}
-Escolha uma meta (tarefa) complexa. Por exemplo,“produzir um relatório técnico atualizado sobre um tema, com dados coletados da web e revisão de qualidade”.
+\[
+(4,0)\rightarrow(4,3)
+\]
 
-Meta escolhida: “planejar uma viagem internacional completa”
+\[
+(4,0)\rightarrow(1,3).
+\]
 
-Descreva como ela seria abordada por:
+Expandindo $(0,3)$:
 
-\begin{questao}{Letra a}
-  um sistema de IA Generativa puro
-\end{questao}
+\[
+(0,3)\rightarrow(0,0)
+\]
 
-Gera um roteiro com base no pedido do usuário e no conhecimento do modelo.
-\begin{itemize}
-\item Autonomia: baixa.
-\item Memória: limitada ao contexto.
-\item Coordenação: inexistente.
-\item Limitação: não verifica preços, horários ou disponibilidade em tempo real.
-\end{itemize}
+\[
+(0,3)\rightarrow(4,3)
+\]
 
-\begin{questao}{Letra b}
-  um Agente de IA único aumentado por ferramentas;
-\end{questao}
+\[
+(0,3)\rightarrow(3,0).
+\]
 
-Pesquisa voos, hotéis, atrações e monta o roteiro.
-\begin{itemize}
-\item Autonomia: média/alta.
-\item Memória: mantém preferências e etapas da tarefa.
-\item Coordenação: centralizada em um agente.
-\item Limitação: pode se sobrecarregar ao gerenciar muitas etapas e fontes.
-\end{itemize}
+Portanto:
 
-\begin{questao}{Letra c}
-  um sistema de IA Agêntica multiagente.
-\end{questao}
+\[
+\begin{array}{c|l}
+\text{Profundidade} & \text{Estados} \\ \hline
+0 & (0,0) \\
+1 & (4,0),(0,3) \\
+2 & (0,0),(4,3),(1,3),(3,0)
+\end{array}
+\]
 
-Divide a tarefa entre agentes: um busca voos, outro hotéis, outro atrações e outro integra tudo.
-\begin{itemize}
-\item Autonomia: alta.
-\item Memória: compartilhada ou dividida entre agentes.
-\item Coordenação: necessária entre os agentes.
-\item Vantagem: maior especialização e capacidade de executar tarefas complexas em paralelo.
-\end{itemize}
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+    >=Stealth,
+    node distance=2.5cm and 3.5cm,
+    estado/.style={
+        draw,
+        circle,
+        minimum size=1.4cm,
+        align=center
+    },
+    legenda/.style={
+        align=center
+    }
+]
 
-\section{Questão 9}
-Sobre as estratégias de raciocínio: CoT, ReAct e ToT:
+% Nós
+\node[estado] (s0) at (0,0) {$(0,0)$};
+\node[estado] (s1) at (-4,-2.5) {$(4,0)$};
+\node[estado] (s2) at (4,-2.5) {$(0,3)$};
+\node[estado] (s3) at (-7,-5) {$(1,3)$};
+\node[estado] (s4) at (0,-5) {$(4,3)$};
+\node[estado] (s5) at (7,-5) {$(3,0)$};
 
-\begin{questao}{Letra a}
-  Diferencie Chain-of-Thought, ReAct e Tree-of-Thoughts quanto à estrutura do raciocínio e ao uso (ou não) de ferramentas externas.
-\end{questao}
+% Título superior
+\node[legenda, above=0.8cm of s0] {\textbf{Estado inicial: ambos os jarros vazios}};
 
-\begin{itemize}
-\item Chain-of-Thought (CoT): organiza o raciocínio como uma sequência linear de passos. Em geral, não depende de ferramentas externas.
-\item ReAct: alterna entre raciocínio e ação, permitindo consultar ferramentas externas, como buscas, APIs ou bancos de dados, e usar os resultados para continuar o raciocínio.
-\item Tree-of-Thoughts (ToT): explora várias linhas de raciocínio em paralelo, como uma árvore, comparando caminhos antes de escolher o melhor. Pode usar ferramentas, mas isso não é obrigatório.
-\end{itemize}
+% Arestas do topo
+\draw[->] (s0) -- node[above left, legenda] {Ação: encher jarro de 4 L} (s1);
+\draw[->] (s0) -- node[above right, legenda] {Ação: encher jarro de 3 L} (s2);
 
+% Arestas saindo de (4,0)
+\draw[->] (s1) -- node[left, legenda] {Transferir do\\jarro de 4 L\\para o de 3 L} (s3);
+\draw[->] (s1) -- node[above right, legenda] {Jarro\\de 3 L} (s4);
 
-\begin{questao}{Letra b}
-  Proponha um problema em que o ToT ofereça vantagem clara sobre o CoT, e explique por quê.
-\end{questao}
+% Arestas saindo de (0,3)
+\draw[->] (s2) -- node[above left, legenda] {Jarro\\de 4 L} (s4);
+\draw[->] (s2) -- node[right, legenda] {Transferir do\\jarro de 3 L\\para o de 4 L} (s5);
 
-Um problema de planejamento de rotas com várias restrições favorece ToT, pois existem diversos caminhos possíveis. O ToT pode explorar e comparar alternativas antes de escolher a melhor, enquanto o CoT tende a seguir uma única linha de raciocínio.
+% Observação embaixo do nó central
+\node[legenda, below=0.8cm of s4] {Cheio: ambos os jarros cheios};
 
-\begin{questao}{Letra c}
-  Esboce o traço (sequência de passos) que um agente ReAct produziria para responder a uma pergunta que exige informação atual que o modelo não possui.
-\end{questao}
+\end{tikzpicture}
+\caption{Porção do grafo do espaço de estados do problema dos jarros até profundidade 2.}
+\label{fig:grafo_jarros}
+\end{figure}
 
-Exemplo: “Qual é a cotação atual do dólar?”
-Raciocínio → Ação → Observação → Raciocínio → Resposta
 
-\begin{questao}{Letra d}
-  Por que ReAct pode ser entendido como a união de CoT com o uso de ferramentas?
-\end{questao}
+\section{Exercício 3}
 
-O ReAct pode ser visto como CoT + ferramentas porque mantém o raciocínio sequencial do CoT, mas intercala esse raciocínio com ações externas e utiliza os resultados dessas ações nos próximos passos.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imagens/ex3.png}
+    \caption{Exercício 3.}
+    \label{fig:ex3}
+\end{figure}
 
-\section{Questão 10}
-Decomponha a meta “organizar automaticamente uma pequena conferência acadêmica” em um sistema de IA Agêntica:
+\subsection{Letra a}
+As arestas relevantes do grafo são:
+
+\[
+S \rightarrow A \;(1), \qquad
+S \rightarrow C \;(4), \qquad
+S \rightarrow G \;(10),
+\]
 
-\begin{questao}{Letra a}
-  Defina os papéis de ao menos quatro agentes especializados e o que cada um faz.
-\end{questao}
+\[
+A \rightarrow B \;(1), \qquad
+B \rightarrow G \;(1), \qquad
+C \rightarrow G \;(3).
+\]
 
-\begin{itemize}
-\item Agente de submissões: recebe e organiza os artigos.
-\item Agente de revisão: distribui trabalhos aos revisores e consolida avaliações.
-\item Agente de programação: monta horários, salas e sessões.
-\item Agente de comunicação: envia avisos para autores, revisores e participantes.
-\end{itemize}
+A fronteira inicial é:
 
-\begin{questao}{Letra b}
-  Explique como eles se comunicam, compartilham memória e são orquestrados.
-\end{questao}
+\[
+F_0 = [\langle S\rangle_0].
+\]
+
+Expandindo $\langle S\rangle_0$:
+
+\[
+F_1 =
+[
+\langle S,A\rangle_1,
+\langle S,C\rangle_4,
+\langle S,G\rangle_{10}
+].
+\]
+
+Seleciona-se $\langle S,A\rangle_1$ e expande-se $A$:
+
+\[
+F_2 =
+[
+\langle S,C\rangle_4,
+\langle S,G\rangle_{10},
+\langle S,A,B\rangle_2
+].
+\]
+
+Seleciona-se $\langle S,C\rangle_4$ e expande-se $C$:
+
+\[
+F_3 =
+[
+\langle S,G\rangle_{10},
+\langle S,A,B\rangle_2,
+\langle S,C,G\rangle_7
+].
+\]
+
+O próximo caminho selecionado é:
+
+\[
+\langle S,G\rangle_{10}.
+\]
+
+Como seu último vértice é o objetivo $G$, a busca termina.
+
+Portanto,
+
+\[
+\boxed{\langle S,G\rangle_{10}}
+\]
+
+é o caminho retornado pela BFS.
+
+\[
+\begin{array}{c|l|l}
+\text{Iteração} &
+\text{Selecionado} &
+\text{Fronteira após expansão} \\ \hline
+
+0 &
+\langle S\rangle_0 &
+[\langle S,A\rangle_1,
+ \langle S,C\rangle_4,
+ \langle S,G\rangle_{10}] \\
+
+1 &
+\langle S,A\rangle_1 &
+[\langle S,C\rangle_4,
+ \langle S,G\rangle_{10},
+ \langle S,A,B\rangle_2] \\
 
-Os agentes trocam mensagens por um orquestrador central e compartilham uma memória comum com dados da conferência, prazos e decisões. O orquestrador distribui tarefas e resolve dependências entre eles.
+2 &
+\langle S,C\rangle_4 &
+[\langle S,G\rangle_{10},
+ \langle S,A,B\rangle_2,
+ \langle S,C,G\rangle_7] \\
 
-\begin{questao}{Letra c}
-  Identifique dois desafios típicos (desalinhamento, propagação de erros, comportamento emergente, explicabilidade) que surgiriam neste caso e proponha, para cada um, uma mitigação.
-\end{questao}
+3 &
+\langle S,G\rangle_{10} &
+\text{Objetivo encontrado}
+\end{array}
+\]
+Na Busca em Largura, a fronteira é tratada como uma fila FIFO, de forma
+que os caminhos de menor profundidade são considerados primeiro. O primeiro
+caminho que alcança o objetivo é $\langle S,G\rangle_{10}$, portanto a BFS
+retorna o caminho direto de $S$ até $G$, com custo total igual a $10$.
 
-\begin{itemize}
-\item Desalinhamento: agentes podem tomar decisões incompatíveis. Mitigação: objetivos e regras globais bem definidos.
-\item Propagação de erros: um erro pode afetar outros agentes. Mitigação: validações e revisões entre etapas.
-\item Comportamento emergente: interações podem gerar resultados inesperados. Mitigação: limites de ação e supervisão humana.
-\item Explicabilidade: pode ser difícil entender como uma decisão foi tomada. Mitigação: registrar ações, decisões e justificativas de cada agente.
-\end{itemize}
+\subsection{Letra b}
+A fronteira inicial é:
+
+\[
+F_0=[\langle S\rangle_0].
+\]
+
+Expandindo $S$, são obtidos:
+
+\[
+\langle S,A\rangle_1,
+\qquad
+\langle S,C\rangle_4,
+\qquad
+\langle S,G\rangle_{10}.
+\]
+
+Ordenando pelo custo acumulado:
+
+\[
+F_1=
+[
+\langle S,A\rangle_1,
+\langle S,C\rangle_4,
+\langle S,G\rangle_{10}
+].
+\]
+
+O caminho de menor custo é $\langle S,A\rangle_1$.
+Expandindo $A$:
+
+\[
+1+1=2,
+\]
+
+logo,
+
+\[
+\langle S,A,B\rangle_2.
+\]
+
+Assim,
+
+\[
+F_2=
+[
+\langle S,A,B\rangle_2,
+\langle S,C\rangle_4,
+\langle S,G\rangle_{10}
+].
+\]
+
+Selecionando $\langle S,A,B\rangle_2$ e expandindo $B$:
+
+\[
+2+1=3,
+\]
+
+resultando em:
+
+\[
+\langle S,A,B,G\rangle_3.
+\]
+
+A fronteira passa a ser:
+
+\[
+F_3=
+[
+\langle S,A,B,G\rangle_3,
+\langle S,C\rangle_4,
+\langle S,G\rangle_{10}
+].
+\]
+
+O caminho de menor custo é:
+
+\[
+\langle S,A,B,G\rangle_3.
+\]
+
+Como termina no objetivo $G$, a busca é encerrada.
+
+Portanto,
+
+\[
+\boxed{\langle S,A,B,G\rangle_3}
+\]
+
+é o caminho retornado.
+
+\[
+\begin{array}{c|l|l}
+\text{Iteração} &
+\text{Selecionado} &
+\text{Fronteira ordenada por custo} \\ \hline
+
+0 &
+\langle S\rangle_0 &
+[\langle S,A\rangle_1,
+ \langle S,C\rangle_4,
+ \langle S,G\rangle_{10}] \\
+
+1 &
+\langle S,A\rangle_1 &
+[\langle S,A,B\rangle_2,
+ \langle S,C\rangle_4,
+ \langle S,G\rangle_{10}] \\
+
+2 &
+\langle S,A,B\rangle_2 &
+[\langle S,A,B,G\rangle_3,
+ \langle S,C\rangle_4,
+ \langle S,G\rangle_{10}] \\
+
+3 &
+\langle S,A,B,G\rangle_3 &
+\text{Objetivo encontrado}
+\end{array}
+\]
+
+Na Busca pelo Primeiro Caminho de Custo Mínimo, a fronteira é ordenada
+pelo custo acumulado dos caminhos. Após as expansões, o primeiro caminho
+até o objetivo selecionado é $\langle S,A,B,G\rangle_3$. Assim, o caminho
+retornado é $S\rightarrow A\rightarrow B\rightarrow G$, com custo total
+igual a $3$.
+
+\subsection{Letra c}
+Os caminhos retornados foram:
+
+\[
+\text{BFS: }
+\langle S,G\rangle_{10}
+\]
+
+e
+
+\[
+\text{Custo mínimo: }
+\langle S,A,B,G\rangle_3.
+\]
+
+Portanto,
+
+\[
+10 > 3.
+\]
+
+A BFS encontrou um caminho com apenas uma aresta:
+
+\[
+S\rightarrow G,
+\]
+
+enquanto a busca de custo mínimo encontrou:
+
+\[
+S\rightarrow A\rightarrow B\rightarrow G,
+\]
+
+com três arestas, porém menor custo total.
+
+A BFS seleciona os caminhos segundo a profundidade:
+
+\[
+\operatorname{Select}_{\mathrm{BFS}}
+=
+\text{primeiro elemento da fila FIFO}.
+\]
+
+Já a Busca pelo Primeiro Caminho de Custo Mínimo seleciona:
+
+\[
+\operatorname{Select}_{\mathrm{LCF}}
+=
+\arg\min_{p\in F}\operatorname{cost}(p).
+\]
+
+\[
+\begin{array}{c|c|c}
+\text{Estratégia} &
+\text{Caminho retornado} &
+\text{Custo} \\ \hline
+
+\text{BFS} &
+\langle S,G\rangle &
+10 \\
+
+\text{Primeiro Caminho de Custo Mínimo} &
+\langle S,A,B,G\rangle &
+3
+\end{array}
+\]
+
+A BFS não retornou o caminho de custo mínimo. Ela encontrou
+$\langle S,G\rangle_{10}$, pois prioriza caminhos de menor profundidade,
+ou seja, com menor número de arestas. Já a Busca pelo Primeiro Caminho de
+Custo Mínimo retornou $\langle S,A,B,G\rangle_3$, pois seleciona sempre o
+caminho de menor custo acumulado.
+
+A diferença entre as estratégias está no critério utilizado pela operação
+\textit{Select}: na BFS, seleciona-se o caminho mais antigo da fila FIFO;
+na busca de custo mínimo, seleciona-se o caminho de menor custo acumulado.
+
+
+\section{Exercício 4}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imagens/ex4.png}
+    \caption{Exercício 4.}
+    \label{fig:ex4}
+\end{figure}
+
+\subsection{Letra a}
+O valor $h^*(n)$ corresponde ao custo real do caminho mínimo
+de cada vértice até o objetivo $G$.
+
+Para o próprio objetivo:
+
+\[
+h^*(G)=0.
+\]
+
+Para $B$, existe a aresta direta
+
+\[
+B\rightarrow G,
+\]
+
+com custo $1$. Portanto,
+
+\[
+h^*(B)=1.
+\]
+
+Para $A$, o menor caminho até $G$ é
+
+\[
+A\rightarrow B\rightarrow G,
+\]
+
+logo,
+
+\[
+h^*(A)=1+1=2.
+\]
+
+Para $C$, o caminho até o objetivo é
+
+\[
+C\rightarrow G,
+\]
+
+com custo $3$. Assim,
+
+\[
+h^*(C)=3.
+\]
+
+Para $S$, existem três possibilidades:
+
+\[
+S\rightarrow G
+\qquad\Rightarrow\qquad
+10,
+\]
+
+\[
+S\rightarrow C\rightarrow G
+\qquad\Rightarrow\qquad
+4+3=7,
+\]
+
+\[
+S\rightarrow A\rightarrow B\rightarrow G
+\qquad\Rightarrow\qquad
+1+1+1=3.
+\]
+
+Portanto,
+
+\[
+h^*(S)=\min\{10,7,3\}=3.
+\]
+
+Assim,
+
+\[
+\boxed{
+\begin{array}{c|ccccc}
+n & S & A & B & C & G \\ \hline
+h^*(n) & 3 & 2 & 1 & 3 & 0
+\end{array}
+}
+\]
+
+Os custos reais mínimos até o objetivo são obtidos analisando o menor
+caminho de cada vértice até $G$. Dessa forma,
+
+\[
+h^*(S)=3,\qquad
+h^*(A)=2,\qquad
+h^*(B)=1,\qquad
+h^*(C)=3,\qquad
+h^*(G)=0.
+\]
+
+\subsection{Letra b}
+Para $h_1$:
+
+\[
+\begin{array}{c|ccccc}
+n & S & A & B & C & G \\ \hline
+h_1(n) & 3 & 2 & 1 & 3 & 0 \\
+h^*(n) & 3 & 2 & 1 & 3 & 0
+\end{array}
+\]
+
+Verificando nó a nó:
+
+\[
+3\leq3,
+\qquad
+2\leq2,
+\qquad
+1\leq1,
+\qquad
+3\leq3,
+\qquad
+0\leq0.
+\]
+
+Logo,
+
+\[
+\boxed{h_1 \text{ é admissível}.}
+\]
+
+A heurística $h_1$ é admissível, pois seus valores coincidem com os
+custos reais mínimos $h^*(n)$ para todos os vértices. Portanto,
+$h_1(n)\leq h^*(n)$ em todos os casos.
+
+Para $h_2$:
+
+\[
+\begin{array}{c|ccccc}
+n & S & A & B & C & G \\ \hline
+h_2(n) & 2 & 1 & 1 & 2 & 0 \\
+h^*(n) & 3 & 2 & 1 & 3 & 0
+\end{array}
+\]
+
+Verificando nó a nó:
+
+\[
+2\leq3,
+\qquad
+1\leq2,
+\qquad
+1\leq1,
+\qquad
+2\leq3,
+\qquad
+0\leq0.
+\]
+
+Logo,
+
+\[
+\boxed{h_2 \text{ é admissível}.}
+\]
+
+A heurística $h_2$ também é admissível, pois em nenhum vértice
+ela superestima o custo real mínimo até $G$. Assim,
+$h_2(n)\leq h^*(n)$ para todos os nós.
+
+Para $h_3$:
+
+\[
+\begin{array}{c|ccccc}
+n & S & A & B & C & G \\ \hline
+h_3(n) & 5 & 3 & 1 & 3 & 0 \\
+h^*(n) & 3 & 2 & 1 & 3 & 0
+\end{array}
+\]
+
+Para $S$:
+
+\[
+h_3(S)=5>3=h^*(S).
+\]
+
+Para $A$:
+
+\[
+h_3(A)=3>2=h^*(A).
+\]
+
+Portanto, a condição
+
+\[
+h_3(n)\leq h^*(n)
+\]
+
+não é satisfeita para todos os nós.
+
+Assim,
+
+\[
+\boxed{h_3 \text{ não é admissível}.}
+\]
+
+Para $h_3$:
+
+\[
+\begin{array}{c|ccccc}
+n & S & A & B & C & G \\ \hline
+h_3(n) & 5 & 3 & 1 & 3 & 0 \\
+h^*(n) & 3 & 2 & 1 & 3 & 0
+\end{array}
+\]
+
+Para $S$:
+
+\[
+h_3(S)=5>3=h^*(S).
+\]
+
+Para $A$:
+
+\[
+h_3(A)=3>2=h^*(A).
+\]
+
+Portanto, a condição
+
+\[
+h_3(n)\leq h^*(n)
+\]
+
+não é satisfeita para todos os nós.
+
+Assim,
+
+\[
+\boxed{h_3 \text{ não é admissível}.}
+\]
+
+\[
+\begin{array}{c|ccccc|c}
+ & S & A & B & C & G & \text{Admissível?} \\ \hline
+h^* & 3 & 2 & 1 & 3 & 0 & - \\
+h_1 & 3 & 2 & 1 & 3 & 0 & \text{Sim} \\
+h_2 & 2 & 1 & 1 & 2 & 0 & \text{Sim} \\
+h_3 & 5 & 3 & 1 & 3 & 0 & \text{Não}
+\end{array}
+\]
+
+\subsection{Letra c}
+O algoritmo A* utiliza a função de avaliação
+
+\[
+f(n)=g(n)+h(n),
+\]
+
+em que $g(n)$ representa o custo acumulado até o nó $n$ e $h(n)$
+representa uma estimativa do custo restante até o objetivo.
+
+Se $h(n)$ não for admissível, pode ocorrer
+
+\[
+h(n)>h^*(n).
+\]
+
+Nesse caso, o custo estimado de um caminho pode ser maior do que seu
+custo real, fazendo com que o A* priorize outro caminho.
+Consequentemente, perde-se a garantia de obtenção da solução ótima.
+
+Caso o A* utilize uma heurística não admissível, a estimativa pode
+superestimar o custo real até o objetivo. Com isso, caminhos que poderiam
+levar à solução ótima podem receber valores de avaliação maiores e serem
+preteridos durante a busca. Portanto, o A* perde a garantia de retornar
+uma solução de custo mínimo, podendo devolver uma solução subótima.
+
+\section{Exercício 5}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imagens/ex5.png}
+    \caption{Exercício 5.}
+    \label{fig:ex5}
+\end{figure}
+
+\subsection{Letra a}
+A heurística utilizada é a distância euclidiana entre cada vértice
+$n=(x_n,y_n)$ e o objetivo $G=(6,3)$:
+
+\[
+h(n)=\sqrt{(x_n-6)^2+(y_n-3)^2}.
+\]
+
+Para $S=(0,0)$:
+
+\[
+h(S)=\sqrt{(0-6)^2+(0-3)^2}
+=\sqrt{36+9}
+=\sqrt{45}
+\approx 6{,}7.
+\]
+
+Para $A=(2,1)$:
+
+\[
+h(A)=\sqrt{(2-6)^2+(1-3)^2}
+=\sqrt{16+4}
+=\sqrt{20}
+\approx 4{,}5.
+\]
+
+Para $B=(4,0)$:
+
+\[
+h(B)=\sqrt{(4-6)^2+(0-3)^2}
+=\sqrt{4+9}
+=\sqrt{13}
+\approx 3{,}6.
+\]
+
+Para $C=(3,4)$:
+
+\[
+h(C)=\sqrt{(3-6)^2+(4-3)^2}
+=\sqrt{9+1}
+=\sqrt{10}
+\approx 3{,}2.
+\]
+
+Para o próprio objetivo:
+
+\[
+h(G)=0.
+\]
+
+Portanto,
+
+\[
+\boxed{
+\begin{array}{c|ccccc}
+n & S & A & B & C & G \\ \hline
+h(n) & 6{,}7 & 4{,}5 & 3{,}6 & 3{,}2 & 0
+\end{array}
+}
+\]
+
+Adotou-se como heurística a distância euclidiana entre cada vértice e o
+objetivo $G=(6,3)$. Os valores obtidos, arredondados para uma casa decimal,
+foram:
+
+\[
+h(S)=6{,}7,\quad
+h(A)=4{,}5,\quad
+h(B)=3{,}6,\quad
+h(C)=3{,}2,\quad
+h(G)=0.
+\]
+
+\subsection{Letra b}
+Para o objetivo:
+
+\[
+h^*(G)=0.
+\]
+
+Para $C$, o menor caminho é direto:
+
+\[
+C\rightarrow G,
+\]
+
+logo,
+
+\[
+h^*(C)=4.
+\]
+
+Para $B$, o menor caminho é:
+
+\[
+B\rightarrow G,
+\]
+
+portanto,
+
+\[
+h^*(B)=7.
+\]
+
+Para $A$, as principais possibilidades são:
+
+\[
+A\rightarrow C\rightarrow G:
+\qquad 4+4=8,
+\]
+
+\[
+A\rightarrow B\rightarrow G:
+\qquad 3+7=10.
+\]
+
+Assim,
+
+\[
+h^*(A)=8.
+\]
+
+Para $S$:
+
+\[
+S\rightarrow A\rightarrow C\rightarrow G:
+\qquad 3+4+4=11,
+\]
+
+\[
+S\rightarrow B\rightarrow G:
+\qquad 5+7=12,
+\]
+
+\[
+S\rightarrow A\rightarrow B\rightarrow G:
+\qquad 3+3+7=13.
+\]
+
+Logo,
+
+\[
+h^*(S)=11.
+\]
+
+Comparando os valores:
+
+\[
+\begin{array}{c|ccccc}
+n & S & A & B & C & G \\ \hline
+h(n)   & 6{,}7 & 4{,}5 & 3{,}6 & 3{,}2 & 0 \\
+h^*(n) & 11    & 8     & 7     & 4     & 0
+\end{array}
+\]
+
+Tem-se, nó a nó:
+
+\[
+6{,}7\leq11,
+\qquad
+4{,}5\leq8,
+\qquad
+3{,}6\leq7,
+\qquad
+3{,}2\leq4,
+\qquad
+0\leq0.
+\]
+
+Portanto,
+
+\[
+\boxed{h(n)\leq h^*(n)\;\; \forall n}
+\]
+
+e a heurística é admissível.
+
+A heurística é admissível, pois em nenhum vértice a distância euclidiana
+superestima o custo real do caminho mínimo até $G$. Para todos os nós,
+verifica-se que
+
+\[
+h(n)\leq h^*(n).
+\]
+
+Assim, a heurística proposta satisfaz a condição de admissibilidade.
+
+\subsection{Letra c}
+O A* utiliza:
+
+\[
+f(p)=\operatorname{cost}(p)+h(n).
+\]
+
+Inicialmente:
+
+\[
+F_0=
+[\langle S\rangle_0],
+\]
+
+com
+
+\[
+f(\langle S\rangle)=0+6{,}7=6{,}7.
+\]
+
+Expandindo $S$:
+
+\[
+\langle S,A\rangle_3:
+\qquad
+f=3+4{,}5=7{,}5,
+\]
+
+\[
+\langle S,B\rangle_5:
+\qquad
+f=5+3{,}6=8{,}6.
+\]
+
+Logo,
+
+\[
+F_1=
+[
+\langle S,A\rangle_3\;(f=7{,}5),
+\langle S,B\rangle_5\;(f=8{,}6)
+].
+\]
+
+Seleciona-se $\langle S,A\rangle_3$.
+
+A expansão de $A$ gera, entre os estados ainda relevantes:
+
+\[
+\langle S,A,B\rangle_6:
+\qquad
+f=6+3{,}6=9{,}6,
+\]
+
+\[
+\langle S,A,C\rangle_7:
+\qquad
+f=7+3{,}2=10{,}2.
+\]
+
+Como já existe um caminho de menor custo para $B$,
+
+\[
+\langle S,B\rangle_5,
+\]
+
+o caminho $\langle S,A,B\rangle_6$ é descartado.
+
+Assim,
+
+\[
+F_2=
+[
+\langle S,B\rangle_5\;(f=8{,}6),
+\langle S,A,C\rangle_7\;(f=10{,}2)
+].
+\]
+
+Seleciona-se $\langle S,B\rangle_5$.
+
+Expandindo $B$, obtém-se:
+
+\[
+\langle S,B,G\rangle_{12},
+\]
+
+com
+
+\[
+f=12+h(G)=12.
+\]
+
+Logo,
+
+\[
+F_3=
+[
+\langle S,A,C\rangle_7\;(f=10{,}2),
+\langle S,B,G\rangle_{12}\;(f=12)
+].
+\]
+
+Seleciona-se $\langle S,A,C\rangle_7$.
+
+Expandindo $C$:
+
+\[
+\langle S,A,C,G\rangle_{11},
+\]
+
+com
+
+\[
+f=11+h(G)=11.
+\]
+
+Como este caminho possui custo menor até $G$ que
+$\langle S,B,G\rangle_{12}$, ele passa a ser a melhor opção.
+
+Assim,
+
+\[
+F_4=
+[
+\langle S,A,C,G\rangle_{11}\;(f=11)
+].
+\]
+
+O próximo caminho selecionado termina no objetivo $G$.
+Portanto,
+
+\[
+\boxed{\langle S,A,C,G\rangle_{11}}
+\]
+
+é o caminho devolvido pelo A*.
+
+\[
+\begin{array}{c|l|l}
+\text{Iteração}
+&
+\text{Selecionado}
+&
+\text{Fronteira ordenada por } f
+\\ \hline
+
+0 &
+\langle S\rangle_0 &
+[
+\langle S,A\rangle_3\;(7{,}5),
+\langle S,B\rangle_5\;(8{,}6)
+]
+\\
+
+1 &
+\langle S,A\rangle_3 &
+[
+\langle S,B\rangle_5\;(8{,}6),
+\langle S,A,C\rangle_7\;(10{,}2)
+]
+\\
+
+2 &
+\langle S,B\rangle_5 &
+[
+\langle S,A,C\rangle_7\;(10{,}2),
+\langle S,B,G\rangle_{12}\;(12)
+]
+\\
+
+3 &
+\langle S,A,C\rangle_7 &
+[
+\langle S,A,C,G\rangle_{11}\;(11)
+]
+\\
+
+4 &
+\langle S,A,C,G\rangle_{11} &
+\text{Objetivo encontrado}
+\end{array}
+\]
+
+Aplicando o algoritmo A*, a fronteira é ordenada de acordo com
+
+\[
+f(p)=\operatorname{cost}(p)+h(n).
+\]
+
+A sequência de vértices expandidos é $S$, $A$, $B$ e $C$. Após a expansão
+de $C$, é obtido o caminho
+
+\[
+\langle S,A,C,G\rangle_{11},
+\]
+
+que passa a possuir o menor valor de $f$ na fronteira e termina no objetivo.
+Portanto, o A* retorna o caminho
+
+\[
+\boxed{S\rightarrow A\rightarrow C\rightarrow G}
+\]
+
+com custo total igual a
+
+\[
+\boxed{11}.
+\]
+
+\subsection{Letra d}
+Na Busca pelo Primeiro Caminho de Custo Mínimo, a seleção é realizada
+apenas pelo custo acumulado.
+
+Inicialmente:
+
+\[
+F_0=[\langle S\rangle_0].
+\]
+
+Expandindo $S$:
+
+\[
+F_1=
+[
+\langle S,A\rangle_3,
+\langle S,B\rangle_5
+].
+\]
+
+Seleciona-se $\langle S,A\rangle_3$.
+A expansão produz um caminho para $C$ de custo $7$.
+O caminho alternativo para $B$ possui custo $6$ e é pior que
+$\langle S,B\rangle_5$.
+
+Assim:
+
+\[
+F_2=
+[
+\langle S,B\rangle_5,
+\langle S,A,C\rangle_7
+].
+\]
+
+Selecionando $\langle S,B\rangle_5$:
+
+\[
+F_3=
+[
+\langle S,A,C\rangle_7,
+\langle S,B,G\rangle_{12}
+].
+\]
+
+Selecionando $\langle S,A,C\rangle_7$:
+
+\[
+F_4=
+[
+\langle S,A,C,G\rangle_{11}
+].
+\]
+
+Em seguida, o objetivo é selecionado.
+
+Portanto, a sequência de expansões é:
+
+\[
+S,\;A,\;B,\;C.
+\]
+
+O A* também expandiu:
+
+\[
+S,\;A,\;B,\;C.
+\]
+
+Logo,
+
+\[
+N_{\mathrm{A^*}}=4
+\]
+
+e
+
+\[
+N_{\mathrm{Custo\ minimo}}=4.
+\]
+
+Assim,
+
+\[
+\boxed{
+N_{\mathrm{A^*}}
+=
+N_{\mathrm{Custo\ minimo}}
+=
+4
+}
+\]
+
+Neste grafo, tanto o A* quanto a Busca pelo Primeiro Caminho de Custo
+Mínimo expandem os vértices $S$, $A$, $B$ e $C$ antes de selecionar o
+objetivo. Portanto, ambos realizam quatro expansões.
+
+Assim, embora a heurística euclidiana seja admissível e forneça informação
+sobre a proximidade do objetivo, neste exemplo específico ela não reduz o
+número de expansões em relação à busca de custo mínimo. O pequeno tamanho e
+a estrutura do grafo fazem com que as duas estratégias explorem os mesmos
+vértices antes de alcançar a solução ótima.
