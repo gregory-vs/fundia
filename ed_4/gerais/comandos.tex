@@ -1,0 +1,30 @@
+\newcommand{\HorRule}[1]{{\color{#1}\rule{\linewidth}{2pt}}}
+\newcommand{\TODO}[1]{\textcolor{red}{#1}}
+\newcommand{\mtnote}[1]{\textsuperscript{\TPTtagStyle{#1}}}
+
+\newcommand{\TITULO}{Estudo Dirigido 3}
+\newcommand{\RELATORIO}{Fundamentos de Inteligência Artificial}
+\newcommand{\ALUNOS}{%
+    \shortstack[l]{%
+        Thales Vasconcelos -- 2018019630 \\
+        Pedro Vieira -- 2016111725
+    }%
+}
+\newcommand{\MesAtual}{%
+  \ifcase\month\or
+    Janeiro\or Fevereiro\or Marco\or Abril\or Maio\or Junho\or
+    Julho\or Agosto\or Setembro\or Outubro\or Novembro\or Dezembro%
+  \fi
+}
+\newcommand{\DATARELATORIO}{\MesAtual/\number\year}
+
+\newenvironment{questao}[1]
+{
+  \begin{framed}
+    \noindent\textbf{#1}
+    \par
+    \vspace{0.5em}
+}
+{
+  \end{framed}
+}

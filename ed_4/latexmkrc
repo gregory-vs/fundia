@@ -1,0 +1,11 @@
+$pdf_mode = 1;
+$do_cd = 1;
+$out_dir = "build";
+$aux_dir = "build";
+if (! -d $out_dir) {
+    mkdir $out_dir or die "Cannot create output directory '$out_dir': $!";
+}
+$bibtex_use = 1;
+$interaction = "nonstopmode";
+$recorder = 1;
+$pdflatex = 'pdflatex -shell-escape %O %S';
